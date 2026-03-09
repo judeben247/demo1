@@ -17,5 +17,11 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+		        stage('run linux cmd') {
+            steps {
+                sh 'cad'
+				sh 'date'
+            }
+        }
     }
 }
