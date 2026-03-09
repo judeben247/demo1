@@ -19,7 +19,7 @@ pipeline {
         }
 		        stage('run linux cmd') {
             steps {
-                sh 'cad'
+                sh 'cal'
 				sh 'date'
             }
         }
