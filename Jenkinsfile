@@ -1,26 +1,20 @@
 pipeline {
     agent any
+	
+	environment {
+        LINUX = 'redhat'
+    }
 
     stages {
-        stage('Build') {
+        stage('Linux cmd') {
             steps {
-                echo 'Building..'
+                sh 'date'
             }
         }
-        stage('Test') {
+        stage('calling var') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-		        stage('run linux cmd') {
-            steps {
-                sh 'cal'
-				sh 'date'
+                sh 'echo my custome variable value $LINUX'
+				sh 'echo this is my build number is $BUILD_ID'
             }
         }
     }
