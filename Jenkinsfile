@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'echo my custome variable value $LINUX'
 				sh 'echo this is my build number is $BUILD_ID'
-				sh 'echo my name is $HELLO
+				sh 'echo my name is $HELLO'
             }
 		}
 	    stage('Linux cmd') {
