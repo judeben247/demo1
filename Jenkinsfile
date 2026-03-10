@@ -15,22 +15,20 @@ pipeline {
                 sh 'date'
             }
         }
-        stage('calling var') {
-		    environment {
-                 HELLO = 'jude'
+		stage('check env') {
+		    steps {
+			     sh 'pwd'
+				 sh 'cal'
+			 }
+		}
+		stage('please confirm if needed'){
+		    input {
+                message "Should we continue?"
+                ok "Yes, we should."
             }
-            steps {
-                sh 'echo my custome variable value $LINUX'
-				sh 'echo this is my build number is $BUILD_ID'
-				sh 'echo my name is $HELLO'
+			steps {
+                echo "Hello, ${PERSON}, nice to meet you."
             }
 		}
-	    stage('calling parameter variable') {
-            steps {
-                sh 'date'
-				sh 'echo my string variable is $PERSON'
-				sh 'echo Enter Terraform command $CHOICE'
-            }
-        }
-    }
+	}
 }
