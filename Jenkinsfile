@@ -1,34 +1,18 @@
 pipeline {
     agent any
-	
 	environment {
-        LINUX = 'redhat'
-    }
-	parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-		choice(name: 'CHOICE', choices: ['Apply','Destroy'], description: 'Terraform')
-	}
-
+         MY_CREDS = credentials('REDHAT')}
     stages {
-        stage('Linux cmd') {
+        stage('LOAD Creds'){
             steps {
-                sh 'date'
+                sh 'echo "My username is MY_CREDS_USR"'
+                sh 'echo "My password is MY_CREDS_PSW"'
             }
         }
-		stage('check env') {
-		    steps {
-			     sh 'pwd'
-				 sh 'cal'
-			 }
-		}
-		stage('please confirm if needed'){
-		    input {
-                message "Should we continue?"
-                ok "Yes, we should."
+		stage('run terraform script'){
+            steps {
+                sh 'echo "terraform job done"'
             }
-			steps {
-                echo "Hello, ${PERSON}, nice to meet you."
-            }
-		}
+        }
 	}
-}
+}	
