@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('LOAD Creds'){
             steps {
-                echo "My username is MY_CRED_USR"
-                echo "My password is MY_CRED_PSW"
+                echo "My username is $MY_CRED_USR"
+                echo "My password is $MY_CRED_PSW"
             }
         }
 		stage('run terraform script'){
