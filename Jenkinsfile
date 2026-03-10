@@ -1,12 +1,12 @@
 pipeline {
     agent any
 	environment {
-         MY_CREDS = credentials('REDHAT')}
+         MY_CRED = credentials('REDHAT')}
     stages {
         stage('LOAD Creds'){
             steps {
-                sh 'echo "My username is MY_CREDS_USR"'
-                sh 'echo "My password is MY_CREDS_PSW"'
+                echo "My username is MY_CRED_USR"
+                echo "My password is MY_CRED_PSW"
             }
         }
 		stage('run terraform script'){
