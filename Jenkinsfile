@@ -6,6 +6,7 @@ pipeline {
     }
 	parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+		choice(name: 'CHOICE', choices: ['Apply','Destroy'], description: 'Terraform')
 	}
 
     stages {
@@ -28,6 +29,7 @@ pipeline {
             steps {
                 sh 'date'
 				sh 'echo my string variable is $PERSON'
+				sh 'echo Enter Terraform command $CHOICE'
             }
         }
     }
