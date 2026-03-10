@@ -24,7 +24,7 @@ pipeline {
 				sh 'echo my name is $HELLO'
             }
 		}
-	    stage('Linux cmd') {
+	    stage('calling parameter variable') {
             steps {
                 sh 'date'
 				sh 'echo my string variable is $PERSON'
